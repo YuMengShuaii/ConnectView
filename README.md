@@ -2,19 +2,26 @@
 ## Install
 
 ### Grade
-`compile 'com.enation.geamtear.widget:ConnectView:1.0.3'
-`
+
+```bash
+compile 'com.enation.geamtear.widget:ConnectView:1.0.3'
+```
 ### Maven
- `<dependency>
+```bash
+<dependency>
   <groupId>com.enation.geamtear.widget</groupId>
   <artifactId>ConnectView</artifactId>
   <version>1.0.3</version>
   <type>pom</type>
-</dependency>`
+</dependency>
+```
+
 ### Lvy
-`<dependency org='com.enation.geamtear.widget' name='ConnectView' rev='1.0.3'>
-  <artifact name='ConnectView' ext='pom' />
-</dependency>`
+```bash
+<dependency org='com.enation.geamtear.widget' name='ConnectView' rev='1.0.3'>
+<artifact name='ConnectView' ext='pom'/>
+</dependency>
+```
 
 
 
@@ -25,7 +32,7 @@
 ## 第三方登录组件
 
 #### ConnectView基本使用
-1. useQQ：     是否开启QQ第三方登录
+1. useQQ：     是否开启QQ第三方登录 
 2. useWeChat   是否开启了微信第三方登录
 3. useSina     是否开启了微博第三方登录
 4. debugLogger 是否开启日志打印
