@@ -351,6 +351,18 @@ public class ConnectView extends LinearLayout {
             if (attrs.getAttributeName(i).equals("debugLogger")){
                 if(attrs.getAttributeBooleanValue(i,false)) ConnectViewLogger.openConnectDebugLogger();
             }
+            /**获取用户自定义QQlogo*/
+            if (attrs.getAttributeName(i).equals("qqSrc")){
+                qqImage = attrs.getAttributeResourceValue(i,qqImage);
+            }
+            /**获取用户自定义微信logo*/
+            if (attrs.getAttributeName(i).equals("wechatSrc")){
+               wechatImage =  attrs.getAttributeResourceValue(i,wechatImage);
+            }
+            /**获取用户自定义微博logo*/
+            if (attrs.getAttributeName(i).equals("sinaSrc")){
+                sinaImage = attrs.getAttributeResourceValue(i,sinaImage);
+            }
         }
             /**获取一共开启的几种三方登录*/
             connectNum = getConnectNum();
@@ -435,5 +447,14 @@ public class ConnectView extends LinearLayout {
      */
     public void initResult(Activity activity,int requestCode, int resultCode, Intent data){
         UMShareAPI.get(activity).onActivityResult(requestCode, resultCode, data);
+    }
+
+    /**
+     * 根据Key获取Item
+     * @param key  itemKey
+     * @return     itemView
+     */
+    public LinearLayout getItemForKey(String key){
+        return subViews==null?null: (LinearLayout) (subViews.get(key) == null ? null : subViews.get(key));
     }
 }

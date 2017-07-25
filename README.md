@@ -24,11 +24,6 @@ compile 'com.enation.geamtear.widget:ConnectView:1.0.3'
 ```
 
 
-
-
-
-
-
 ## 第三方登录组件
 
 #### ConnectView基本使用
@@ -36,6 +31,9 @@ compile 'com.enation.geamtear.widget:ConnectView:1.0.3'
 2. useWeChat：   是否开启了微信第三方登录
 3. useSina：     是否开启了微博第三方登录
 4. debugLogger： 是否开启日志打印
+5. qqSrc:        是否自定义QQlogo
+6. wechatSrc：   是否自定义微信Logo
+7. sinaSrc：     是否自定义微博Logo
 
     
 ```
@@ -45,6 +43,9 @@ compile 'com.enation.geamtear.widget:ConnectView:1.0.3'
         app:useQQ="true"
         app:useSina="true"
         app:useWechat="true"
+        app:qqSrc="@drawable/umeng_socialize_copyurl"
+        app:wechatSrc="@drawable/umeng_socialize_copyurl"
+        app:sinaSrc="@drawable/umeng_socialize_copyurl"
         android:layout_marginBottom="20dp"
         app:debugLogger="true"
         android:id="@+id/connectview"

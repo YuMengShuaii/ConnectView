@@ -26,8 +26,8 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
-    compile 'com.enation.geamtear.widget:ConnectView:1.0.3'
     compile files('libs/SocialSDK_sms.jar')
     compile files('libs/libapshare.jar')
     compile files('libs/SocialSDK_alipay.jar')
+    compile project(':connectview')
 }
