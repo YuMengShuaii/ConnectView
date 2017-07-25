@@ -32,10 +32,10 @@ compile 'com.enation.geamtear.widget:ConnectView:1.0.3'
 ## 第三方登录组件
 
 #### ConnectView基本使用
-1. useQQ：     是否开启QQ第三方登录 
-2. useWeChat   是否开启了微信第三方登录
-3. useSina     是否开启了微博第三方登录
-4. debugLogger 是否开启日志打印
+1. useQQ：       是否开启QQ第三方登录 
+2. useWeChat：   是否开启了微信第三方登录
+3. useSina：     是否开启了微博第三方登录
+4. debugLogger： 是否开启日志打印
 
     
 ```
