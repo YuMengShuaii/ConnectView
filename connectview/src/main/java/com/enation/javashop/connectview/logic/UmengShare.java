@@ -79,6 +79,21 @@ public class UmengShare implements UmengControl.UmengWebInit,UmengControl.UmengC
     }
 
     /**
+     * 初始化分享对象 并配置分享列表
+     * @param activity   调用者Activity
+     * @param shareList  分享配置列表
+     * @return self
+     */
+    public static UmengControl.UmengWebInit init(Activity activity,SHARE_MEDIA... shareList){
+        if (umeng==null){
+            umeng = new UmengShare();
+        }
+        umeng.config(activity,shareList);
+        return umeng;
+    }
+
+
+    /**
      * 私有构造方法，防止该类被实例化
      */
     private UmengShare() {
@@ -86,13 +101,17 @@ public class UmengShare implements UmengControl.UmengWebInit,UmengControl.UmengC
     }
 
     /**
-     * 配置分享，添加监听
-     * @param act
+     * 分享配置，此方法可以配置参数列表
+     * @param act        用户上下文
+     * @param shareList  分享列表配置
      */
-    private void config(Activity act){
+    private void config(Activity act,SHARE_MEDIA... shareList){
+        if (shareList.length==0){
+            shareList = new SHARE_MEDIA[]{SHARE_MEDIA.QZONE, SHARE_MEDIA.WEIXIN_CIRCLE, SHARE_MEDIA.WEIXIN_FAVORITE, SHARE_MEDIA.QQ, SHARE_MEDIA.WEIXIN, SHARE_MEDIA.SINA};
+        }
         activity = act;
         shareAction = new ShareAction(activity)
-                .setDisplayList(SHARE_MEDIA.QQ, SHARE_MEDIA.WEIXIN,SHARE_MEDIA.SINA)
+                .setDisplayList(shareList)
                 .setCallback(new UMShareListener() {
                     @Override
                     public void onStart(SHARE_MEDIA share_media) {
@@ -107,7 +126,7 @@ public class UmengShare implements UmengControl.UmengWebInit,UmengControl.UmengC
                     @Override
                     public void onError(SHARE_MEDIA share_media, Throwable throwable) {
                         onUiToast("分享失败！");
-                        Log.e("UmengError","Error:"+throwable.toString()+throwable.getMessage()+throwable.getCause());
+                        Log.e("ConnectView_ShareError","Error:"+throwable.toString()+throwable.getMessage()+throwable.getCause());
                     }
 
                     @Override
@@ -117,6 +136,13 @@ public class UmengShare implements UmengControl.UmengWebInit,UmengControl.UmengC
                 });
     }
 
+    /**
+     * 配置分享，添加监听 此方法采用默认分享列表
+     * @param activity 调用者Activity
+     */
+    private void config(Activity activity){
+        config(activity,new SHARE_MEDIA[0]);
+    }
     /**
      * Toast提示，运行在UI线程
      * @param message

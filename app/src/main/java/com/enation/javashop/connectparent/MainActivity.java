@@ -1,5 +1,6 @@
 package com.enation.javashop.connectparent;
 
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import com.enation.javashop.connectview.logic.UmengShare;
 import com.enation.javashop.connectview.utils.ConnectViewLogger;
 import com.enation.javashop.connectview.utils.Utils;
 import com.enation.javashop.connectview.widget.ConnectView;
+import com.umeng.socialize.bean.SHARE_MEDIA;
 
 import java.util.Map;
 
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UmengShare.init(MainActivity.this)
+                UmengShare.init(MainActivity.this,SHARE_MEDIA.SMS)
                         .setUrl("http://www.baidu.com")
                         .setImage(BitmapFactory.decodeResource(getResources(),R.drawable.umeng_socialize_qq))
                         .setText("ada")
@@ -58,5 +60,11 @@ public class MainActivity extends AppCompatActivity {
                         .go();
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        connectView.initResult(this,requestCode,resultCode,data);
     }
 }
