@@ -20,6 +20,7 @@ public class ConnectViewLogger {
      */
     public static void openConnectDebugLogger(){
         isLog = true;
+        Config.DEBUG = true;
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.enation.javashop.connectparent;
 
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.enation.javashop.connectview.logic.UmengLogin;
+import com.enation.javashop.connectview.logic.UmengShare;
 import com.enation.javashop.connectview.utils.ConnectViewLogger;
 import com.enation.javashop.connectview.utils.Utils;
 import com.enation.javashop.connectview.widget.ConnectView;
@@ -48,12 +50,12 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                connectView.addConnectItem(R.drawable.umeng_socialize_qq, "测试", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Utils.toastS(getBaseContext(),"sadads");
-                    }
-                });
+                UmengShare.init(MainActivity.this)
+                        .setUrl("http://www.baidu.com")
+                        .setImage(BitmapFactory.decodeResource(getResources(),R.drawable.umeng_socialize_qq))
+                        .setText("ada")
+                        .setTitle("sada")
+                        .go();
             }
         });
     }
