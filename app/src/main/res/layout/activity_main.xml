@@ -4,27 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
+    android:background="#ffffff"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.enation.javashop.connectparent.MainActivity">
-
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        >
+        </android.support.v7.widget.Toolbar>
     <TextView
-        android:id="@+id/add"
-        android:layout_width="wrap_content"
+        android:id="@+id/content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/addItem"/>
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:gravity="center"
+        android:background="#999999"
+        android:layout_above="@+id/connectview"
+        android:layout_marginBottom="70dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        />
+    <TextView
+        android:text="第三方登录"
+        android:id="@+id/addItem"
+        android:layout_above="@+id/connectview"
+        android:gravity="center"
+        android:layout_marginBottom="55dp"
+        android:background="#ffffff"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="30dp"/>
     <com.enation.javashop.connectview.widget.ConnectView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         app:useQQ="true"
-        app:useSina="false"
-        app:useWechat="false"
+        app:useSina="true"
+        app:useWechat="true"
+        android:layout_marginBottom="20dp"
         app:debugLogger="true"
         android:id="@+id/connectview"
+        android:layout_alignParentBottom="true"
         >
     </com.enation.javashop.connectview.widget.ConnectView>
 </RelativeLayout>

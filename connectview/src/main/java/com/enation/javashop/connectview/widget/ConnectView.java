@@ -113,8 +113,6 @@ public class ConnectView extends LinearLayout {
         super(context, attrs);
         /**初始化子View集合*/
         subViews = new HashMap<>();
-        /** 初始化，获得屏幕宽高及密度*/
-        Utils.initScreenInfo(getContext());
         /**对数据初始化*/
         initData(attrs);
         /**初始化ConnectView预制第三方Item*/

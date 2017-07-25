@@ -10,18 +10,6 @@ import android.widget.Toast;
  */
 
 public class Utils {
-    /**
-     * 屏幕密度
-     */
-    public static float SCREEN_DENSITY = 0.0F;
-    /**
-     * 屏幕高度
-     */
-    public static int SCREEN_HEIGHT = 0;
-    /**
-     * 屏幕宽度
-     */
-    public static int SCREEN_WIDTH = 0;
 
     /**
      * Toast提示 3秒
@@ -86,15 +74,4 @@ public class Utils {
         return Utils.px2sp(context,dip2px(context,dpValue))-10;
     }
 
-    /**
-     * 初始化屏幕信息
-     * @param context 上下文
-     */
-    public static void initScreenInfo(Context context){
-        DisplayMetrics localDisplayMetrics = new DisplayMetrics();
-        ((WindowManager)context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getMetrics(localDisplayMetrics);
-        SCREEN_DENSITY = localDisplayMetrics.density;
-        SCREEN_HEIGHT = localDisplayMetrics.heightPixels;
-        SCREEN_WIDTH = localDisplayMetrics.widthPixels;
-    }
 }
