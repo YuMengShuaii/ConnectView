@@ -17,6 +17,7 @@ import com.enation.javashop.connectview.utils.ConnectViewLogger;
 import com.enation.javashop.connectview.utils.Utils;
 import com.enation.javashop.connectview.widget.ConnectView;
 import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMImage;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar  toolbar;
     private TextView content;
     private TextView addItem;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +56,12 @@ public class MainActivity extends AppCompatActivity {
                 connectView.addConnectItem(R.drawable.umeng_socialize_copy, "测试", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Utils.toastS(getBaseContext(),"Connect测试");
+                        UmengLogin.login(MainActivity.this, SHARE_MEDIA.ALIPAY, new UmengLogin.ConnectListener() {
+                            @Override
+                            public void success(Map<String, String> data) {
+
+                            }
+                        });
                     }
 
                 });
@@ -71,21 +78,27 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.share:
                         /**使用自定义参数列表分享*/
-                        UmengShare.init(MainActivity.this, SHARE_MEDIA.SMS, SHARE_MEDIA.ALIPAY)
-                                .setUrl("http://www.baidu.com")
-                                .setImage(BitmapFactory.decodeResource(getResources(), R.drawable.umeng_socialize_qq))
-                                .setText("ada")
-                                .setTitle("sada")
-                                .go();
+                        UmengShare.Init(MainActivity.this, SHARE_MEDIA.SMS, SHARE_MEDIA.ALIPAY)
+                                .web("http://www.baidu.com")
+                                .setWebImage(BitmapFactory.decodeResource(getResources(), R.drawable.umeng_socialize_qq))
+                                .setWebDescription("ada")
+                                .setWebTitle("sada")
+                                .webShare();
                         break;
                     case R.id.share2:
                         /**使用默认分享参数列表*/
-                        UmengShare.init(MainActivity.this)
-                                .setUrl("http://www.baidu.com")
-                                .setImage(BitmapFactory.decodeResource(getResources(), R.drawable.umeng_socialize_qq))
-                                .setText("ada")
-                                .setTitle("sada")
-                                .go();
+                        UmengShare.Init(MainActivity.this)
+                                .web("http://www.baidu.com")
+                                .setWebImage(BitmapFactory.decodeResource(getResources(), R.drawable.umeng_socialize_qq))
+                                .setWebDescription("ada")
+                                .setWebTitle("sada")
+                                .webShare();
+                        UmengLogin.login(MainActivity.this, SHARE_MEDIA.ALIPAY, new UmengLogin.ConnectListener() {
+                            @Override
+                            public void success(Map<String, String> data) {
+
+                            }
+                        });
                         break;
                 }
                 return false;

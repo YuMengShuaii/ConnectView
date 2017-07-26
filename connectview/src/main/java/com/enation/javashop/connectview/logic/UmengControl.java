@@ -2,6 +2,8 @@ package com.enation.javashop.connectview.logic;
 
 import android.graphics.Bitmap;
 
+import com.umeng.socialize.media.UMImage;
+
 /**
  * Umeng工具类，接口
  */
@@ -11,17 +13,44 @@ public interface UmengControl {
     /**
      * 初始化接口
      */
-    interface UmengWebInit{
-        UmengControl.UmengConfig setUrl(String url);
+    interface UmengInit{
+        UmengWebConfig   web(String url);
+        UmengImageConfig image(UMImage image);
+        UmengVideoShare  video(String videoUrl);
+        UmengMusicShare  muisc(String muiscUrl);
+        void             textShare(String text);
     }
 
     /**
-     * 配置接口
+     * web分享配置接口
      */
-    interface UmengConfig{
-        UmengControl.UmengConfig setTitle(String text);
-        UmengControl.UmengConfig setText(String text);
-        UmengControl.UmengConfig setImage(Bitmap bitmap);
-        void go();
+    interface UmengWebConfig{
+        UmengWebConfig setWebTitle(String text);
+        UmengWebConfig setWebDescription(String text);
+        UmengWebConfig setWebImage(Bitmap bitmap);
+        UmengWebConfig setWebImage(UMImage image);
+        void webShare();
+    }
+
+    interface UmengImageConfig{
+        UmengImageConfig setImageDescription(String describe);
+        void imageShare();
+    }
+
+    interface UmengVideoShare{
+        UmengVideoShare setVideoTitle(String title);
+        UmengVideoShare setVideoDescription(String description);
+        UmengVideoShare setVideoImage(String url);
+        UmengVideoShare setVideoImage(UMImage image);
+        void videoShare();
+    }
+
+    interface UmengMusicShare{
+        UmengMusicShare setMusicTitle(String title);
+        UmengMusicShare setMusicImage(String url);
+        UmengMusicShare setMusicImage(UMImage image);
+        UmengMusicShare setMusicDescription(String text);
+        UmengMusicShare setMuiscTargetUrl(String url);
+        void  musicShare();
     }
 }
