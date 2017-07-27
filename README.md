@@ -10,21 +10,21 @@
 ### Grade
 
 ```bash
-compile 'com.enation.geamtear.widget:ConnectView:1.0.4'
+compile 'com.enation.geamtear.widget:ConnectView:1.0.5'
 ```
 ### Maven
 ```bash
 <dependency>
   <groupId>com.enation.geamtear.widget</groupId>
   <artifactId>ConnectView</artifactId>
-  <version>1.0.4</version>
+  <version>1.0.5</version>
   <type>pom</type>
 </dependency>
 ```
 
 ### Lvy
 ```bash
-<dependency org='com.enation.geamtear.widget' name='ConnectView' rev='1.0.4'>
+<dependency org='com.enation.geamtear.widget' name='ConnectView' rev='1.0.5'>
 <artifact name='ConnectView' ext='pom'/>
 </dependency>
 ```
