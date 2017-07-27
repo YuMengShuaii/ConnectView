@@ -205,6 +205,8 @@ UmengShare.Init(MainActivity.this)
 
 ```
 
+
+
 ##自定义Umeng配置类
 
 不强制建议使用，只是添加了自己的配置入口，且只有内置平台
