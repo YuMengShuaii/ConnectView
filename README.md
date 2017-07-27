@@ -78,6 +78,16 @@ connectView.setConnectListener(type, new UmengLogin.ConnectListener() {
             public void success(Map<String, String> data) {
 
             }
+            
+            @Override
+            public void error(String message) {
+                                
+            }
+            
+            @Override
+            public void cancel() {
+
+            }
         });
 ```
 
@@ -109,6 +119,17 @@ connectView.addConnectItem(R.drawable.umeng_socialize_copy, "测试", new View.O
                             public void success(Map<String, String> data) {
                                 
                             }
+                            
+                            @Override
+                            public void error(String message) {
+                                                
+                            }
+                            
+                            @Override
+                            public void cancel() {
+                
+                            }
+                            
                         });
                     }
 
@@ -201,6 +222,17 @@ UmengShare.Init(MainActivity.this)
                             public void success(Map<String, String> data) {
                                 
                             }
+                            
+                            @Override
+                            public void error(String message) {
+                                                
+                            }
+                            
+                            @Override
+                            public void cancel() {
+                
+                            }
+                            
                         });
 
 ```

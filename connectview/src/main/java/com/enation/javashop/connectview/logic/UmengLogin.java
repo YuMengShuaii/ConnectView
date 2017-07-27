@@ -85,20 +85,16 @@ public class UmengLogin {
 
         @Override
         public void onComplete(SHARE_MEDIA platform, int action, Map<String,String> data) {
-
-            Utils.toastS(myActivity,"授权成功");
             Blistener.success(data);
         }
         @Override
         public void onError(SHARE_MEDIA platform, int action, Throwable t) {
-            Utils.toastS(myActivity,"授权失败");
-            Log.e("data",t.toString()+"");
+            Blistener.error(t.getMessage());
         }
 
         @Override
         public void onCancel(SHARE_MEDIA platform, int action) {
-            Utils.toastS(myActivity,"授权取消");
-            Log.e("data","关闭授权");
+            Blistener.cancel();
         }
     };
 
@@ -107,5 +103,7 @@ public class UmengLogin {
      */
     public interface ConnectListener{
         void success(Map<String, String> data);
+        void error  (String message);
+        void cancel ();
     }
 }

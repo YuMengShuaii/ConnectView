@@ -68,6 +68,16 @@ public class MainActivity extends AppCompatActivity {
                             public void success(Map<String, String> data) {
 
                             }
+
+                            @Override
+                            public void error(String message) {
+
+                            }
+
+                            @Override
+                            public void cancel() {
+
+                            }
                         });
                     }
 
@@ -117,6 +127,16 @@ public class MainActivity extends AppCompatActivity {
             public void success(Map<String, String> data) {
 
             }
+
+            @Override
+            public void error(String message) {
+
+            }
+
+            @Override
+            public void cancel() {
+
+            }
         });
         /**设置微博登录监听*/
         connectView.setConnectListener(UmengLogin.WEIBO, new UmengLogin.ConnectListener() {
@@ -124,11 +144,32 @@ public class MainActivity extends AppCompatActivity {
             public void success(Map<String, String> data) {
 
             }
+
+            @Override
+            public void error(String message) {
+
+            }
+
+            @Override
+            public void cancel() {
+
+            }
+
         });
         /**设置微信登录监听*/
         connectView.setConnectListener(UmengLogin.WECHAT, new UmengLogin.ConnectListener() {
             @Override
             public void success(Map<String, String> data) {
+
+            }
+
+            @Override
+            public void error(String message) {
+
+            }
+
+            @Override
+            public void cancel() {
 
             }
         });
