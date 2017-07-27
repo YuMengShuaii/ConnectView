@@ -32,11 +32,17 @@ public interface UmengControl {
         void webShare();
     }
 
+    /**
+     * 图片分享接口
+     */
     interface UmengImageConfig{
         UmengImageConfig setImageDescription(String describe);
         void imageShare();
     }
 
+    /**
+     * 视频分享接口
+     */
     interface UmengVideoShare{
         UmengVideoShare setVideoTitle(String title);
         UmengVideoShare setVideoDescription(String description);
@@ -45,6 +51,9 @@ public interface UmengControl {
         void videoShare();
     }
 
+    /**
+     * 音乐分享接口
+     */
     interface UmengMusicShare{
         UmengMusicShare setMusicTitle(String title);
         UmengMusicShare setMusicImage(String url);

@@ -455,6 +455,6 @@ public class ConnectView extends LinearLayout {
      * @return     itemView
      */
     public LinearLayout getItemForKey(String key){
-        return subViews==null?null: (LinearLayout) (subViews.get(key) == null ? null : subViews.get(key));
+        return subViews==null?null: (LinearLayout) subViews.get(key);
     }
 }

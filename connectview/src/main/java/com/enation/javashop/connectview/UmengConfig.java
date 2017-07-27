@@ -3,7 +3,7 @@ package com.enation.javashop.connectview;
 import com.umeng.socialize.PlatformConfig;
 
 /**
- * Created by LDD on 17/7/26.
+ *  自定义Umeng配置类 仅列出内置平台 如需要其他平台直接调用PlatformConfig中的方法，参考Umeng文档
  */
 
 public class UmengConfig {

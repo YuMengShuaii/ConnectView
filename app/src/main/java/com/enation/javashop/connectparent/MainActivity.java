@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.enation.javashop.connectview.UmengConfig;
 import com.enation.javashop.connectview.logic.UmengLogin;
 import com.enation.javashop.connectview.logic.UmengShare;
 import com.enation.javashop.connectview.utils.ConnectViewLogger;
@@ -34,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        /**初始化QQ参数*/
+//        UmengConfig.initQQ("QQkey","QQsec");
+//        /**初始化微信参数*/
+//        UmengConfig.initWechat("WecahtID","WechatSec");
+//        /**初始化微博参数*/
+//        UmengConfig.initWeiBo("SinaKey","Sinasec","Authurl");
         initView();
         BindEvent();
     }
@@ -93,12 +100,6 @@ public class MainActivity extends AppCompatActivity {
                                 .setWebDescription("ada")
                                 .setWebTitle("sada")
                                 .webShare();
-                        UmengLogin.login(MainActivity.this, SHARE_MEDIA.ALIPAY, new UmengLogin.ConnectListener() {
-                            @Override
-                            public void success(Map<String, String> data) {
-
-                            }
-                        });
                         break;
                 }
                 return false;
